@@ -11,6 +11,7 @@ var UVIndex = $('#uv-index');
 
 // AJAX call function
 function renderWeather(cityName) {
+
   // 5 Day Forecast API URL
   var forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&APPID=" + APIKey;
 
@@ -68,8 +69,6 @@ function renderWeather(cityName) {
     windSpeed.text("Wind Speed: " + response.wind.speed + "MPH");
 
   });
-
-
 }
 
 $('.btn-primary').click(function(event){
