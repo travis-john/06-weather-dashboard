@@ -2,7 +2,6 @@
 var APIKey = '950e5f6ee11a03024c303d695a0203f1';
 var userSearch = localStorage.getItem('city-searches');
 userSearch = JSON.parse(userSearch) || [];
-var userInput = $('#city-search').val().trim();
 var city = $('#city-name');
 var weatherIcon = $('#weather-icon');
 var temp = $('#temperature');
@@ -48,13 +47,16 @@ function renderWeather(cityName) {
 
 $('.btn-primary').click(function(event){
   event.preventDefault;
-  // if((userInput === null) || (userInput === '')){
-  //   alert("Please enter a valid city");
-  // } else {
-  //
-  // }
+  var userInput = $('#city-search').val().trim();
+  if((userInput === null) || (userInput === '')){
+    alert("Please enter a valid city");
+  } else {
+    userSearch.push(userInput);
+    localStorage.setItem("city-searches", JSON.stringify(userSearch));
+    renderWeather(userInput);
+    userInput.empty();
+  }
 
-  userSearch.push(userInput);
-  localStorage.setItem("city-searches", JSON.stringify(userSearch));
-  renderWeather(userInput);
+
+
 });
