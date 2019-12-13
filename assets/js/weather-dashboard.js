@@ -53,8 +53,16 @@ function renderWeather(cityName) {
 
       console.log(forecastResponse);
 
+      //getting current weather icon
+      var currentWeatherIcon = forecastResponse.list[0].weather[0].icon;
+
+      // populating weather icon with current weather icon
+      weatherIcon.attr('src', 'https://openweathermap.org/img/wn/' + currentWeatherIcon + '@2x.png');
+
       // renderForecast(forecastResponse);
     });
+
+
 
     // emptying out text fields on every submit
     city.empty();

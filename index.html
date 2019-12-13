@@ -1,19 +1,19 @@
  <!DOCTYPE html>
- <html lang="en">
+ <html lang='en'>
 
 <head>
-     <meta charset="UTF-8">
+     <meta charset='UTF-8'>
      <title>OpenWeather Dashboard</title>
-     <meta name="description" content="DESCRIPTION">
+     <meta name='description' content='DESCRIPTION'>
 
      <!-- Boostrap CSS -->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
 
      <!-- FontAwesome -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 
      <!-- Custom CSS -->
-     <link rel="stylesheet" href="assets/css/styles.css">
+     <link rel='stylesheet' href='assets/css/styles.css'>
 
  </head>
 
@@ -27,77 +27,79 @@
 
     </header>
 
-    <div class="container">
+    <div class='container'>
 
-      <div class="row">
+      <div class='row'>
 
-        <div class="col-sm-3">
+        <div class='col-sm-3'>
 
-          <label for="city-search"><h2>Search for a City</h2></label>
+          <label for='city-search'><h2>Search for a City</h2></label>
 
-          <div class="input-group mb-3">
+          <div class='input-group mb-3'>
 
-            <input type="text" class="form-control" placeholder="Enter City" id='city-search'>
+            <input type='text' class='form-control' placeholder='Enter City' id='city-search'>
 
-            <div class="input-group-append">
+            <div class='input-group-append'>
 
-              <button class="btn btn-primary" type="button">Search</button>
+              <button class='btn btn-primary' type='button'>Search</button>
 
             </div>
 
           </div>
 
-          <button class="btn btn-secondary" type="button">Clear Search History</button>
+          <button class='btn btn-secondary' type='button'>Clear Search History</button>
 
           <hr>
 
-          <div class="search-history">
+          <div class='search-history'>
 
           </div>
 
         </div>
 
-        <div class="col-sm-9">
+        <div class='col-sm-9'>
 
-          <div class="container">
+          <div class='container'>
 
-            <div class="row mb-2">
+            <div class='row mb-2'>
 
-              <div class="col-sm-12">
+              <div class='col-sm-12'>
 
-                <h2 id='city-name'></h2><span><img id="weather-icon"></span>
+                <h2 id='city-name'></h2>
 
-                <p id="temperature"></p>
+                <img id='weather-icon'>
 
-                <p id="humidity"></p>
+                <p id='temperature'></p>
 
-                <p id="wind-speed"></p>
+                <p id='humidity'></p>
 
-                <p id="uv-index"></p>
+                <p id='wind-speed'></p>
+
+                <p id='uv-index'></p>
 
               </div>
 
             </div>
 
-            <div class="row mt-4">
+            <div class='row mt-4'>
 
-              <div class="col-sm-12 forecast-col">
+              <div class='col-sm-12 forecast-col'>
 
-                <h2 class="d-none">5 Day Forecast</h2>
+                <h2 class='d-none'>5 Day Forecast</h2>
 
-                <div class="card-group">
+                <div class='card-group'>
 
-                  <!-- <div class="card forecast-card">
+                  <!-- <div class='card forecast-card'>
 
-                    <img class="card-img-top"src="">
+                    <img class='card-img-top'src=''>
 
-                    <div class="card-body">
+                    <div class='card-body'>
 
-                      <h5 class="card-title">TEST</h5>
+                      <h5 class='card-title'>TEST</h5>
 
                       <p class='card-text'>test</p>
 
-                      <p class="card-text">test</p>
+                      <p class='card-text'>test</p>
 
                     </div>
 
@@ -118,17 +120,17 @@
     </div>
 
    <!-- JQuery -->
-   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+   <script src='https://code.jquery.com/jquery-3.4.1.min.js' integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=' crossorigin='anonymous'></script>
 
    <!-- Popper JS - Required for Bootstrap -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'></script>
 
    <!-- Bootstrap JS -->
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script>
 
 
    <!-- Dashboard JS -->
-   <script src="assets/js/weather-dashboard.js">
+   <script src='assets/js/weather-dashboard.js'>
 
   </script>
  </body>
