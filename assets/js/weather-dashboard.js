@@ -21,13 +21,14 @@ function renderWeather(cityName) {
     var Lat = "lat=" + response.coord.lat;
     var Lon = "lon=" + response.coord.lon;
     UVQUeryURL = "https://api.openweathermap.org/data/2.5/uvi?" + "&APPID=" + APIKey + "&" + Lat + "&" + Lon;
-    console.log(response);
+    // var currentWeatherIcon = response.list[3].weather[0].icon
+    // console.log(response);
 
     $.ajax({
       url: UVQUeryURL,
       method: 'GET'
     }).then(function(UVResponse){
-      console.log(UVResponse);
+      // console.log(UVResponse);
       UVIndex.text('UV Index: ' + UVResponse.value);
     });
 
@@ -38,6 +39,7 @@ function renderWeather(cityName) {
 
 
     city.text(response.name);
+    // weatherIcon.attr('src', "https://openweathermap.org/img/wn/" + currentWeatherIcon + "@2x.png" )
     temp.text("Temperature: " + response.main.temp + "℉");
     humidity.text("Humidity: " + response.main.humidity + "%");
     windSpeed.text("Wind Speed: " + response.wind.speed + "MPH");
@@ -54,7 +56,7 @@ $('.btn-primary').click(function(event){
     userSearch.push(userInput);
     localStorage.setItem("city-searches", JSON.stringify(userSearch));
     renderWeather(userInput);
-    userInput.empty();
+    // userInput.empty();
   }
 
 
