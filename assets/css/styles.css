@@ -13,3 +13,8 @@
   border-radius: .25rem;
   border: .25rem solid white;
 }
+
+.current-weather-col {
+  background-color: #4D4D4D;
+  color: white;
+}

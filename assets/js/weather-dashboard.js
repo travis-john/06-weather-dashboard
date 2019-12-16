@@ -63,6 +63,7 @@ function renderWeather(cityName) {
       weatherIcon.attr('src', 'https://openweathermap.org/img/wn/' + currentWeatherIcon + '@2x.png');
 
       forecastGroup.empty();
+      $('h2').removeClass('d-none');
 
       for (var i = 0; i < forecastResponse.list.length; i++){
 
@@ -89,6 +90,8 @@ function renderWeather(cityName) {
         }
       }
     });
+
+    $('.current-weather-col').removeClass('d-none');
 
     // emptying out text fields on every submit
     city.empty();
@@ -163,4 +166,6 @@ $('.btn-secondary').click(function(){
   windSpeed.empty();
   UVIndex.empty();
   forecastGroup.empty();
+  $('h2').addClass('d-none');
+  $('.current-weather-col').addClass('d-none');
 })
