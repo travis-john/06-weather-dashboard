@@ -61,6 +61,31 @@ function renderWeather(cityName) {
       // populating weather icon with current weather icon
       weatherIcon.attr('src', 'https://openweathermap.org/img/wn/' + currentWeatherIcon + '@2x.png');
 
+      for (var i = 0; i < forecastResponse.length; i++){
+
+        if (forecastResponse.list[i].dt_txt.indexOf('15:00:00') !== -1) {
+
+          $('.forecast-group').append(`
+
+            <div class='card forecast-card'>
+
+              <img class='card-img-top'src=''>
+
+              <div class='card-body'>
+
+                <h5 class='card-title'>TEST</h5>
+
+                <p class='card-text'>TEST</p>
+
+                <p class='card-text'>TEST</p>
+
+              </div>
+
+            </div>`);
+
+        }
+      }
+
       // renderForecast(forecastResponse);
     });
 
@@ -81,9 +106,9 @@ function renderWeather(cityName) {
   });
 }
 
-// function renderForecast(forecastResponse){
+// function renderForecast(data){
 //
-//   for (var i = 0; i < forecastResponse.length; i++){
+//   for (var i = 0; i < data.length; i++){
 //
 //     if (data.list[i].dt_txt.indexOf('15:00:00') !== -1) {
 //
