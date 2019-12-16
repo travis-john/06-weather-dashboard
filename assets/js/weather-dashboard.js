@@ -182,5 +182,6 @@ $('.list-group-item-action').click(function(event){
 
 $('.btn-secondary').click(function(){
   localStorage.clear();
+  $('.search-history').empty();
   // renderSearchHistory();
 })
