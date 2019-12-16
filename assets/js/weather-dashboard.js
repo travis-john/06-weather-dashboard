@@ -160,7 +160,7 @@ function addPreviousSearch() {
       previousSearch = $('<button>');
   previousSearch.addClass('search list-group-item list-group-item-action');
   previousSearch.attr('data-name', userInput);
-  previousSearch.text(userInput);
+  previousSearch.text(userInput.toUpperCase());
   $('.search-history').prepend(previousSearch);
 }
 
@@ -185,7 +185,7 @@ $('.btn-secondary').click(function(){
   $('.search-history').empty();
   userSearch = [];
   city.empty();
-  weatherIcon.empty();
+  weatherIcon.attr('src', '');
   temp.empty();
   humidity.empty();
   windSpeed.empty();
