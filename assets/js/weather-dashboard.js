@@ -11,6 +11,10 @@ var UVIndex = $('#uv-index');
 var userInput;
 renderSearchHistory();
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 // AJAX call function
 function renderWeather(cityName) {
 
@@ -144,7 +148,7 @@ function renderSearchHistory() {
     for (var i = 0; i < userSearch.length; i++) {
         var button = $('<button>');
         button.addClass('search list-group-item list-group-item-action');
-        button.text(userSearch[i]);
+        button.text(userSearch[i].toUpperCase());
         $('.search-history').prepend(button);
     }
 }
