@@ -8,6 +8,7 @@ var temp = $('#temperature');
 var humidity = $('#humidity');
 var windSpeed = $('#wind-speed');
 var UVIndex = $('#uv-index');
+var forecastGroup = $('.forecast-group')
 var userInput;
 renderSearchHistory();
 
@@ -61,23 +62,25 @@ function renderWeather(cityName) {
       // populating weather icon with current weather icon
       weatherIcon.attr('src', 'https://openweathermap.org/img/wn/' + currentWeatherIcon + '@2x.png');
 
+      forecastGroup.empty();
+
       for (var i = 0; i < forecastResponse.list.length; i++){
 
         if (forecastResponse.list[i].dt_txt.indexOf('15:00:00') !== -1) {
 
-          $('.forecast-group').append(`
+          forecastGroup.append(`
 
             <div class='card forecast-card'>
 
-              <img class='card-img-top'src=''>
+              <img class='card-img-top'src="">
 
               <div class='card-body'>
 
-                <h5 class='card-title'>TEST</h5>
+                <h5 class='card-title'>${forecastResponse.list[i].dt_txt}</h5>
 
-                <p class='card-text'>TEST</p>
+                <p class='card-text'>High: ${forecastResponse.list[i].main.tmp_max}℉</p>
 
-                <p class='card-text'>TEST</p>
+                <p class='card-text'>Humidity: ${forecastResponse.list[i].main.humidity}%</p>
 
               </div>
 
@@ -152,10 +155,12 @@ $('.btn-secondary').click(function(){
   localStorage.clear();
   $('.search-history').empty();
   userSearch = [];
+
   city.empty();
   weatherIcon.attr('src', '');
   temp.empty();
   humidity.empty();
   windSpeed.empty();
   UVIndex.empty();
+  forecastGroup.empty();
 })
