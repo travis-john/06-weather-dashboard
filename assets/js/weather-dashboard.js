@@ -72,7 +72,7 @@ function renderWeather(cityName) {
 
             <div class='card forecast-card'>
 
-              <img class='card-img-top'src="">
+              <img class='card-img-top'src=${'https://openweathermap.org/img/wn/' + forecastResponse.list[i].weather[0].icon + '@2x.png'}>
 
               <div class='card-body'>
 
