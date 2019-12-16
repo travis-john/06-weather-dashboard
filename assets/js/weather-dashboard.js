@@ -151,7 +151,7 @@ function renderSearchHistory() {
 
 $('.list-group-item-action').click(function(event){
   event.preventDefault();
-  var pastSearch = $(this).attr('data-name');
+  var pastSearch = $(this).text();
   renderWeather(pastSearch);
 });
 
