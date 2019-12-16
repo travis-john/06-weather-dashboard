@@ -61,7 +61,7 @@ function renderWeather(cityName) {
       // populating weather icon with current weather icon
       weatherIcon.attr('src', 'https://openweathermap.org/img/wn/' + currentWeatherIcon + '@2x.png');
 
-      for (var i = 0; i < forecastResponse.length; i++){
+      for (var i = 0; i < forecastResponse.list.length; i++){
 
         if (forecastResponse.list[i].dt_txt.indexOf('15:00:00') !== -1) {
 
@@ -85,11 +85,7 @@ function renderWeather(cityName) {
 
         }
       }
-
-      // renderForecast(forecastResponse);
     });
-
-
 
     // emptying out text fields on every submit
     city.empty();
@@ -105,34 +101,6 @@ function renderWeather(cityName) {
 
   });
 }
-
-// function renderForecast(data){
-//
-//   for (var i = 0; i < data.length; i++){
-//
-//     if (data.list[i].dt_txt.indexOf('15:00:00') !== -1) {
-//
-//       $('.forecast-group').append(`
-//
-//         <div class='card forecast-card'>
-//
-//           <img class='card-img-top'src=''>
-//
-//           <div class='card-body'>
-//
-//             <h5 class='card-title'>TEST</h5>
-//
-//             <p class='card-text'>test</p>
-//
-//             <p class='card-text'>test</p>
-//
-//           </div>
-//
-//         </div>`);
-//
-//     }
-//   }
-// }
 
 $('.btn-primary').click(function(event){
   event.preventDefault;
