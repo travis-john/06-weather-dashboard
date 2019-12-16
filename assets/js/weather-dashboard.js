@@ -8,15 +8,17 @@ var temp = $('#temperature');
 var humidity = $('#humidity');
 var windSpeed = $('#wind-speed');
 var UVIndex = $('#uv-index');
+var userInput;
+renderSearchHistory();
 
 // AJAX call function
 function renderWeather(cityName) {
 
   // 5 Day Forecast API URL
-  var forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&APPID=" + APIKey;
+  var forecastQueryURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&units=imperial&APPID=' + APIKey;
 
   // Current Westher API URL
-  var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&APPID=" + APIKey;
+  var weatherQueryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=imperial&APPID=' + APIKey;
 
 //main AJAX Call - for weather
   $.ajax({
@@ -27,11 +29,11 @@ function renderWeather(cityName) {
     console.log(response);
 
     // Storing Latitude and Longitude as variables for UV Index AJAX Call
-    var Lat = "lat=" + response.coord.lat;
-    var Lon = "lon=" + response.coord.lon;
+    var Lat = 'lat=' + response.coord.lat;
+    var Lon = 'lon=' + response.coord.lon;
 
     // UV Index Query URL
-    UVQUeryURL = "https://api.openweathermap.org/data/2.5/uvi?" + "&APPID=" + APIKey + "&" + Lat + "&" + Lon;
+    UVQUeryURL = 'https://api.openweathermap.org/data/2.5/uvi?' + '&APPID=' + APIKey + '&' + Lat + '&' + Lon;
 
     // UV Index AJAX Call
     $.ajax({
@@ -72,12 +74,40 @@ function renderWeather(cityName) {
 
     // filling out text fields based on API Call Results
     city.text(response.name);
-    temp.text("Temperature: " + response.main.temp + "℉");
-    humidity.text("Humidity: " + response.main.humidity + "%");
-    windSpeed.text("Wind Speed: " + response.wind.speed + "MPH");
+    temp.text('Temperature: ' + response.main.temp + '℉');
+    humidity.text('Humidity: ' + response.main.humidity + '%');
+    windSpeed.text('Wind Speed: ' + response.wind.speed + 'MPH');
 
   });
 }
+
+// function renderForecast(forecastResponse){
+//
+//   for (var i = 0; i < forecastResponse.length; i++){
+//
+//     if (data.list[i].dt_txt.indexOf('15:00:00') !== -1) {
+//
+//       $('.forecast-group').append(`
+//
+//         <div class='card forecast-card'>
+//
+//           <img class='card-img-top'src=''>
+//
+//           <div class='card-body'>
+//
+//             <h5 class='card-title'>TEST</h5>
+//
+//             <p class='card-text'>test</p>
+//
+//             <p class='card-text'>test</p>
+//
+//           </div>
+//
+//         </div>`);
+//
+//     }
+//   }
+// }
 
 $('.btn-primary').click(function(event){
   event.preventDefault;
@@ -87,14 +117,45 @@ $('.btn-primary').click(function(event){
 
   // accounting for blank input field and invalid response
   if((userInput === null) || (userInput === '')){
-    alert("Please enter a valid city");
+    alert('Please enter a valid city');
   }
 
   // storing UserInput, pushing to array and adding to localStorage
   //running AJAX call function on submit
   else {
     userSearch.push(userInput);
-    localStorage.setItem("city-searches", JSON.stringify(userSearch));
+    localStorage.setItem('city-searches', JSON.stringify(userSearch));
     renderWeather(userInput);
+    addPreviousSearch();
   }
 });
+
+function addPreviousSearch() {
+  var userInput = $('#city-search').val().trim(),
+      previousSearch = $('<button>');
+  previousSearch.addClass('search list-group-item list-group-item-action');
+  previousSearch.attr('data-name', userInput);
+  previousSearch.text(userInput);
+  $('.search-history').prepend(previousSearch);
+}
+
+function renderSearchHistory() {
+    console.log(userSearch);
+    for (var i = 0; i < userSearch.length; i++) {
+        var button = $('<button>');
+        button.addClass('search list-group-item list-group-item-action');
+        button.text(userSearch[i]);
+        $('.search-history').prepend(button);
+    }
+}
+
+$('.list-group-item-action').click(function(event){
+  event.preventDefault();
+  var pastSearch = $(this).attr('data-name');
+  renderWeather(pastSearch);
+});
+
+$('.btn-secondary').click(function(){
+  localStorage.clear();
+  renderSearchHistory();
+})
