@@ -86,7 +86,7 @@ function renderWeather(cityName) {
 
                 <h5 class='card-title'>${forecastResponse.list[i].dt_txt}</h5>
 
-                <p class='card-text'>High: ${forecastResponse.list[i].main.tmp_max}℉</p>
+                <p class='card-text'>High: ${forecastResponse.list[i].main.temp_max}℉</p>
 
                 <p class='card-text'>Humidity: ${forecastResponse.list[i].main.humidity}%</p>
 
