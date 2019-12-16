@@ -183,5 +183,10 @@ $('.list-group-item-action').click(function(event){
 $('.btn-secondary').click(function(){
   localStorage.clear();
   $('.search-history').empty();
-  // renderSearchHistory();
+  userSearch = [];
+  city.empty();
+  weatherIcon.empty();
+  temp.empty();
+  humidity.empty();
+  windSpeed.empty();
 })
