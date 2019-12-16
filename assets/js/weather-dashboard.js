@@ -189,4 +189,5 @@ $('.btn-secondary').click(function(){
   temp.empty();
   humidity.empty();
   windSpeed.empty();
+  UVIndex.empty();
 })
