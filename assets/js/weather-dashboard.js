@@ -11,10 +11,6 @@ var UVIndex = $('#uv-index');
 var userInput;
 renderSearchHistory();
 
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 // AJAX call function
 function renderWeather(cityName) {
 
