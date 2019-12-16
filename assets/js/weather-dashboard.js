@@ -99,7 +99,7 @@ function renderWeather(cityName) {
     });
 
     // removing display: none from current-weather-col due to differeng bg color
-    $('.current-weather-col').removeClass('d-none');
+    $('.current-weather-col').addClass('row-border');
 
     // emptying out text fields on every submit
     city.empty();
@@ -140,12 +140,15 @@ $('.btn-primary').click(function(event){
 
 // adding a button below the search bar with previoius searches for quick history
 function addPreviousSearch() {
+
   var userInput = $('#city-search').val().trim(),
       previousSearch = $('<button>');
+
   previousSearch.addClass('search list-group-item list-group-item-action');
   previousSearch.attr('data-name', userInput);
   previousSearch.text(userInput.toUpperCase());
   $('.search-history').prepend(previousSearch);
+
 }
 
 // rendering buttons below search bar
@@ -197,5 +200,5 @@ $('.btn-secondary').click(function(){
   UVIndex.empty();
   forecastGroup.empty();
   $('h2').addClass('d-none');
-  $('.current-weather-col').addClass('d-none');
+  $('.current-weather-col').removeClass('row-border');
 });
